@@ -1,3 +1,6 @@
 .DS_Store
-Debug/*
-*.un~
+bin/*
+*.*~
+*.userprefs
+*.pdb
+*.pidb

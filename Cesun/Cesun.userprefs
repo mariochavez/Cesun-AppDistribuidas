@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Cesun.Consultas/User.cs">
+    <Files>
+      <File FileName="Cesun.Consultas/User.cs" Line="17" Column="25" />
+      <File FileName="Assembly Browser" />
+      <File FileName="Cesun.UI/Main.cs" Line="43" Column="4" />
+      <File FileName="Cesun.Consultas/Question.cs" Line="12" Column="3" />
+      <File FileName="Cesun.UI/arconfig.xml" Line="17" Column="41" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
