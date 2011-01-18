@@ -6,6 +6,7 @@ using Castle.Components.Validator;
 namespace Cesun.Consultas
 {
 	[ActiveRecord(Cache=CacheEnum.ReadWrite)]
+	//[ActiveRecord]
 	public class User : ActiveRecordValidationBase<User>
 	{
 		private IList<Question> questions = new List<Question>();
@@ -22,6 +23,8 @@ namespace Cesun.Consultas
 		public string Username { get; set; }
 		
 		[Property]
+		[ValidateNonEmpty("No debe de estar vacio")]
+		[ValidateEmail]
 		public string Email { get; set; }
 		
 		[HasMany]

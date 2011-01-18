@@ -3,7 +3,8 @@ using Castle.ActiveRecord;
 
 namespace Cesun.Consultas
 {
-	[ActiveRecord(Cache=CacheEnum.ReadWrite)]
+	//[ActiveRecord(Cache=CacheEnum.ReadWrite)]
+	[ActiveRecord]
 	public class Question : ActiveRecordValidationBase<Question>
 	{
 		public Question ()

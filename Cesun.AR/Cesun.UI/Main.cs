@@ -38,7 +38,6 @@ namespace Cesun.UI
 			}
 			
 			QueryInfo();
-			QueryInfo();
 		}
 		
 		public static void InsertInvalidInfo() 
@@ -53,7 +52,6 @@ namespace Cesun.UI
 					log.Error(String.Format("Error: {0}", error));
 				}
 			}
-			
 		}
 		
 		public static void InsertInfo() 
@@ -81,8 +79,9 @@ namespace Cesun.UI
 			User user = User.Find(1);
 			Console.WriteLine(String.Format("{0} => {1}", 
 			                                user.Username, user.Email));
+			user = User.Find(1);
 			
-			User[] users = User.FindByUsername("mario.chavez");
+			/*User[] users = User.FindByUsername("mario.chavez");
 			if(users.Length > 0)
 			{
 				user = users[0];
@@ -92,7 +91,7 @@ namespace Cesun.UI
 			
 			user = User.Find(1);
 			Console.WriteLine(String.Format("{0} => {1}", 
-			                                user.Username, user.Email));
+			                                user.Username, user.Email));*/
 		}
 	}
 }
