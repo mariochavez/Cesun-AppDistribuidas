@@ -38,6 +38,7 @@ namespace Cesun.UI
 			}
 			
 			QueryInfo();
+			QueryInfo();
 		}
 		
 		public static void InsertInvalidInfo() 
@@ -88,6 +89,10 @@ namespace Cesun.UI
 				Console.WriteLine(String.Format("{0} => {1}", 
 			                                user.Username, user.Email));
 			}
+			
+			user = User.Find(1);
+			Console.WriteLine(String.Format("{0} => {1}", 
+			                                user.Username, user.Email));
 		}
 	}
 }

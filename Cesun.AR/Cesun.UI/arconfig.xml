@@ -19,6 +19,10 @@
   	<add
   		key="proxyfactory.factory_class"
   		value="NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle" />
+  		
+  	<add
+  		key="cache.provider_class"
+  		value="NHibernate.Cache.HashtableCacheProvider" />
   </config>
   
 </activerecord>

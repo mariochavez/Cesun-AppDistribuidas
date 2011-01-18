@@ -5,7 +5,7 @@ using Castle.Components.Validator;
 
 namespace Cesun.Consultas
 {
-	[ActiveRecord]
+	[ActiveRecord(Cache=CacheEnum.ReadWrite)]
 	public class User : ActiveRecordValidationBase<User>
 	{
 		private IList<Question> questions = new List<Question>();
