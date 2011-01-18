@@ -2,17 +2,30 @@ using System;
 using Cesun.Consultas;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework.Config;
+using System.IO;
 
 namespace Cesun.UI
 {
 	class MainClass
 	{
-		public static void Main (string[] args)
+		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(MainClass));
+		
+		public static void Initialize()
 		{
-			XmlConfigurationSource config = new XmlConfigurationSource("arconfig.xml");
-			ActiveRecordStarter.Initialize(config, 
+			FileInfo fileInfo = new FileInfo("log4net.xml");
+			log4net.Config.XmlConfigurator.Configure(fileInfo);
+			//log4net.Config.BasicConfigurator.Configure();
+			log.Info("Inicializando app");
+			
+			XmlConfigurationSource arConfig = new XmlConfigurationSource("arconfig.xml");
+			ActiveRecordStarter.Initialize(arConfig, 
 			                               typeof(User),
 			                               typeof(Question));
+		}
+		
+		public static void Main (string[] args)
+		{
+			Initialize();
 			
 			Console.WriteLine("Deseas crear la DB? (Y/N): (Y)es");
 			string response = Console.ReadLine();
