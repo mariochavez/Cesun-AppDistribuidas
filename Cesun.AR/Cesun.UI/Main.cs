@@ -14,7 +14,7 @@ namespace Cesun.UI
 		{
 			FileInfo fileInfo = new FileInfo("log4net.xml");
 			log4net.Config.XmlConfigurator.Configure(fileInfo);
-			//log4net.Config.BasicConfigurator.Configure();
+
 			log.Info("Inicializando app");
 			
 			XmlConfigurationSource arConfig = new XmlConfigurationSource("arconfig.xml");
@@ -34,7 +34,7 @@ namespace Cesun.UI
 				ActiveRecordStarter.CreateSchema();
 				InsertInfo();
 				
-				//InsertInvalidInfo();
+				InsertInvalidInfo();
 			}
 			
 			QueryInfo();
@@ -42,12 +42,17 @@ namespace Cesun.UI
 		
 		public static void InsertInvalidInfo() 
 		{
-			Console.WriteLine("Insertando informacion invalida");
+			log.Info("Insertando informacion invalida");
 			User user = new User();
 			//user.Username = "mario.chavez";
 			user.Email = "mario.chavez@gmail.com";
 			
-			user.SaveAndFlush();
+			if(!user.IsValid()) {
+				foreach (var error in user.ValidationErrorMessages) {
+					log.Error(String.Format("Error: {0}", error));
+				}
+			}
+			
 		}
 		
 		public static void InsertInfo() 

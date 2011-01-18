@@ -4,7 +4,7 @@ using Castle.ActiveRecord;
 namespace Cesun.Consultas
 {
 	[ActiveRecord]
-	public class Question : ActiveRecordBase<Question>
+	public class Question : ActiveRecordValidationBase<Question>
 	{
 		public Question ()
 		{
