@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cesun.NH1.Data", "Cesun.NH1.Data\Cesun.NH1.Data.csproj", "{2822350A-9750-47E6-A6EE-DA6C0A248C69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cesun.NH1.UI", "Cesun.NH1.UI\Cesun.NH1.UI.csproj", "{84AD0245-0CA5-4D35-A707-DACDBBB62C1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2822350A-9750-47E6-A6EE-DA6C0A248C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2822350A-9750-47E6-A6EE-DA6C0A248C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2822350A-9750-47E6-A6EE-DA6C0A248C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2822350A-9750-47E6-A6EE-DA6C0A248C69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84AD0245-0CA5-4D35-A707-DACDBBB62C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84AD0245-0CA5-4D35-A707-DACDBBB62C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84AD0245-0CA5-4D35-A707-DACDBBB62C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84AD0245-0CA5-4D35-A707-DACDBBB62C1A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Cesun.NH1.UI\Cesun.NH1.UI.csproj
+	EndGlobalSection
+EndGlobal

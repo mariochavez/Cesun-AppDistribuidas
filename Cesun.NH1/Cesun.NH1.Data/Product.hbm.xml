@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+	assembly="Cesun.NH1.Data"
+	namespace="Cesun.NH1.Data.Domain">
+
+	<class name="Product">
+		<id name="Id">
+			<generator class="native" />
+		</id>
+		<property name="Name" />
+		<property name="Category" />
+		<property name="Price" />
+	</class>
+</hibernate-mapping>
