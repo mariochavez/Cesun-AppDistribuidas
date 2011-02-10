@@ -39,13 +39,12 @@ namespace Cesun.NH1.UI
 			//TotalProduct Name, TotalUnits, TotalAmount
 			
 			// Ejemplo con NHibernate donde se use projections
-				
-			var query = session.CreateCriteria<Product>()
-				.Add(Restrictions.Eq("Name", "MacBook Pro"))
-				.AddOrder(Order.Asc("Price"));
 			
-			if(1 == 1)
-				query.Add(Restrictions.Ge("Price", 1000m));
+			// http://blogs.hibernatingrhinos.com/
+				
+			var query = session.CreateQuery("from Product p where p.Name = :name and p.Price >= :price")
+				.SetString("name", "MacBook Pro")
+				.SetDecimal("price", 1000m);
 				
 			IList<Product> products = query.List<Product>();
 			
