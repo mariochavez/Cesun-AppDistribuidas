@@ -5,6 +5,7 @@ using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
+using Cesun.NH1.Data;
 
 namespace Cesun.NH1.UI
 {
@@ -21,18 +22,15 @@ namespace Cesun.NH1.UI
 					.Execute(true, true, false);
 				//new SchemaUpdate(cfg).Execute();
 			
-			ISession session = SessionManager.Session();
-			using(ITransaction transaction = session.BeginTransaction()) {
-				Product product = new Product { 
+			IRepository<Product> repository = new ProductRepository(SessionManager.Session());
+			
+			Product product = new Product() { 
 					Name = "MacBook Pro", 
-					Category = "Computer",
+					//Category = "Computer",∂
 					Price = 1700m,
-					Description = "Aluminum MBP"
-				};
-				
-				session.Save(product);
-				transaction.Commit();
-			}
+					Description = "Aluminum MBP"};
+			
+				repository.Save(product);
 			
 			//Product productDB = session.Get<Product>(1);
 			
@@ -42,12 +40,7 @@ namespace Cesun.NH1.UI
 			
 			// http://blogs.hibernatingrhinos.com/
 				
-			var query = session.CreateQuery("from Product p where p.Name = :name and p.Price >= :price")
-				.SetString("name", "MacBook Pro")
-				.SetDecimal("price", 1000m);
-				
-			IList<Product> products = query.List<Product>();
-			
+			IList<Product> products = repository.FindByProperty("Name", "MacBook Pro");
 			
 			Console.WriteLine(String.Format("Name = {0}, Price = {1}", 
 			                                products[0].Name, products[0].Price));
