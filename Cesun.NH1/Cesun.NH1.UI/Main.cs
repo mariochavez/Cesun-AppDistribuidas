@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Cesun.NH1.Data.Domain;
 using NHibernate;
+using NHibernate.Criterion;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 
@@ -32,9 +34,24 @@ namespace Cesun.NH1.UI
 				transaction.Commit();
 			}
 			
-			Product productDB = session.Get<Product>(1);
+			//Product productDB = session.Get<Product>(1);
+			
+			//TotalProduct Name, TotalUnits, TotalAmount
+			
+			// Ejemplo con NHibernate donde se use projections
+				
+			var query = session.CreateCriteria<Product>()
+				.Add(Restrictions.Eq("Name", "MacBook Pro"))
+				.AddOrder(Order.Asc("Price"));
+			
+			if(1 == 1)
+				query.Add(Restrictions.Ge("Price", 1000m));
+				
+			IList<Product> products = query.List<Product>();
+			
+			
 			Console.WriteLine(String.Format("Name = {0}, Price = {1}", 
-			                                productDB.Name, productDB.Price));
+			                                products[0].Name, products[0].Price));
 			SessionManager.Close();
 		}
 	}
