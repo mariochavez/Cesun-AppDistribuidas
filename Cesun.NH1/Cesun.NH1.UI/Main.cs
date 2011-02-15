@@ -40,12 +40,38 @@ namespace Cesun.NH1.UI
 			
 			// http://blogs.hibernatingrhinos.com/
 				
-			IList<Product> products = repository.FindByProperty("Name", "MacBook Pro");
+			//IList<Product> products = repository.FindByProperty("Name", "MacBook Pro");
 			
-			Console.WriteLine(String.Format("Name = {0}, Price = {1}", 
-			                                products[0].Name, products[0].Price));
+			//Console.WriteLine(String.Format("Name = {0}, Price = {1}", 
+			//                                products[0].Name, products[0].Price));
+			
+			
+			var projection = Projections.ProjectionList()
+				.Add(Projections.Property("Name"), "Nombre")
+				.Add(Projections.Property("Price"), "Precio")
+				.Add(Projections.Constant(1), "TipoProducto");
+					
+			var criteria = SessionManager.Session().CreateCriteria<Product>()
+				.Add(Expression.Ge("Price", 100m))
+				.AddOrder(Order.Asc("Name"));
+			
+			criteria.SetProjection(Projections.Distinct(projection))
+				.SetResultTransformer(
+				                      NHibernate.Transform.Transformers.AliasToBean(
+				                                                                    typeof(ProductDTO)));
+			
+			
+			IList<ProductDTO> productos = criteria.List<ProductDTO>();
+			
 			SessionManager.Close();
 		}
+	}
+	
+	public class ProductDTO
+	{
+		public string Nombre { get; set; }
+		public decimal Precio { get; set; }
+		public int TipoProducto { get; set; }
 	}
 }
 
