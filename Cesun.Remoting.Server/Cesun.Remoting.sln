@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cesun.Remoting.Server", "Cesun.Remoting.Server\Cesun.Remoting.Server.csproj", "{D81F17CB-084E-4811-937A-3B43B32B178C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cesun.Remoting.Client", "Cesun.Remoting.Client\Cesun.Remoting.Client.csproj", "{1BE2FCB6-7978-46B3-A663-C429EF9C231C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BE2FCB6-7978-46B3-A663-C429EF9C231C}.Debug|x86.ActiveCfg = Debug|x86
+		{1BE2FCB6-7978-46B3-A663-C429EF9C231C}.Debug|x86.Build.0 = Debug|x86
+		{1BE2FCB6-7978-46B3-A663-C429EF9C231C}.Release|x86.ActiveCfg = Release|x86
+		{1BE2FCB6-7978-46B3-A663-C429EF9C231C}.Release|x86.Build.0 = Release|x86
+		{D81F17CB-084E-4811-937A-3B43B32B178C}.Debug|x86.ActiveCfg = Debug|x86
+		{D81F17CB-084E-4811-937A-3B43B32B178C}.Debug|x86.Build.0 = Debug|x86
+		{D81F17CB-084E-4811-937A-3B43B32B178C}.Release|x86.ActiveCfg = Release|x86
+		{D81F17CB-084E-4811-937A-3B43B32B178C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Cesun.Remoting.Server\Cesun.Remoting.Server.csproj
+	EndGlobalSection
+EndGlobal
