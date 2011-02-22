@@ -17,8 +17,9 @@ namespace Cesun.Remoting.Client
 			bool shouldExit = false;
 			
 			do {
+				Person p = server.FindPerson(0);
 				Console.WriteLine(String.Format("Resultado de la llamada al server: {0}", 
-			                                server.GetActiveDomain()));
+			                                server.GetActiveDomain() ));
 				
 				Console.WriteLine("Exit: (N)");
 				string ret = Console.ReadLine();
