@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cesun.WS.Server", "Cesun.WS.Server\Cesun.WS.Server.csproj", "{A53CBA50-C96D-4820-8357-D771A96DFCC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cesun.WS.Client", "Cesun.WS.Client\Cesun.WS.Client.csproj", "{09424E54-6FE2-4FAB-A27B-54B4A0F7BE71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09424E54-6FE2-4FAB-A27B-54B4A0F7BE71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09424E54-6FE2-4FAB-A27B-54B4A0F7BE71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09424E54-6FE2-4FAB-A27B-54B4A0F7BE71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09424E54-6FE2-4FAB-A27B-54B4A0F7BE71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A53CBA50-C96D-4820-8357-D771A96DFCC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A53CBA50-C96D-4820-8357-D771A96DFCC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A53CBA50-C96D-4820-8357-D771A96DFCC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A53CBA50-C96D-4820-8357-D771A96DFCC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Cesun.WS.Client\Cesun.WS.Client.csproj
+	EndGlobalSection
+EndGlobal

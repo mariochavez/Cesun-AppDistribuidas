@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s0="http://www.cesun.edu" name="Servidor" targetNamespace="http://www.cesun.edu" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.cesun.edu" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Suma">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="a" type="xs:int" />
+            <xs:element minOccurs="1" maxOccurs="1" name="b" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SumaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="SumaResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Multiplicacion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="a" type="xs:int" />
+            <xs:element minOccurs="1" maxOccurs="1" name="b" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="MultiplicacionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="MultiplicacionResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="int" type="xs:int" />
+    </xs:schema>
+  </types>
+  <message name="SumaSoapIn">
+    <part name="parameters" element="s0:Suma" />
+  </message>
+  <message name="SumaSoapOut">
+    <part name="parameters" element="s0:SumaResponse" />
+  </message>
+  <message name="MultiplicacionSoapIn">
+    <part name="parameters" element="s0:Multiplicacion" />
+  </message>
+  <message name="MultiplicacionSoapOut">
+    <part name="parameters" element="s0:MultiplicacionResponse" />
+  </message>
+  <message name="SumaHttpGetIn">
+    <part name="a" type="s:int" />
+    <part name="b" type="s:int" />
+  </message>
+  <message name="SumaHttpGetOut">
+    <part name="Body" element="s0:int" />
+  </message>
+  <message name="MultiplicacionHttpGetIn">
+    <part name="a" type="s:int" />
+    <part name="b" type="s:int" />
+  </message>
+  <message name="MultiplicacionHttpGetOut">
+    <part name="Body" element="s0:int" />
+  </message>
+  <message name="SumaHttpPostIn">
+    <part name="a" type="s:int" />
+    <part name="b" type="s:int" />
+  </message>
+  <message name="SumaHttpPostOut">
+    <part name="Body" element="s0:int" />
+  </message>
+  <message name="MultiplicacionHttpPostIn">
+    <part name="a" type="s:int" />
+    <part name="b" type="s:int" />
+  </message>
+  <message name="MultiplicacionHttpPostOut">
+    <part name="Body" element="s0:int" />
+  </message>
+  <portType name="ServidorSoap">
+    <operation name="Suma">
+      <input message="s0:SumaSoapIn" />
+      <output message="s0:SumaSoapOut" />
+    </operation>
+    <operation name="Multiplicacion">
+      <input message="s0:MultiplicacionSoapIn" />
+      <output message="s0:MultiplicacionSoapOut" />
+    </operation>
+  </portType>
+  <portType name="ServidorSoap12">
+    <operation name="Suma">
+      <input message="s0:SumaSoapIn" />
+      <output message="s0:SumaSoapOut" />
+    </operation>
+    <operation name="Multiplicacion">
+      <input message="s0:MultiplicacionSoapIn" />
+      <output message="s0:MultiplicacionSoapOut" />
+    </operation>
+  </portType>
+  <portType name="ServidorHttpGet">
+    <operation name="Suma">
+      <input message="s0:SumaHttpGetIn" />
+      <output message="s0:SumaHttpGetOut" />
+    </operation>
+    <operation name="Multiplicacion">
+      <input message="s0:MultiplicacionHttpGetIn" />
+      <output message="s0:MultiplicacionHttpGetOut" />
+    </operation>
+  </portType>
+  <portType name="ServidorHttpPost">
+    <operation name="Suma">
+      <input message="s0:SumaHttpPostIn" />
+      <output message="s0:SumaHttpPostOut" />
+    </operation>
+    <operation name="Multiplicacion">
+      <input message="s0:MultiplicacionHttpPostIn" />
+      <output message="s0:MultiplicacionHttpPostOut" />
+    </operation>
+  </portType>
+  <binding name="ServidorSoap" type="s0:ServidorSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Suma">
+      <soap:operation soapAction="http://www.cesun.edu/Suma" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Multiplicacion">
+      <soap:operation soapAction="http://www.cesun.edu/Multiplicacion" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="ServidorSoap12" type="s0:ServidorSoap12">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Suma">
+      <soap12:operation soapAction="http://www.cesun.edu/Suma" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Multiplicacion">
+      <soap12:operation soapAction="http://www.cesun.edu/Multiplicacion" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="ServidorHttpGet" type="s0:ServidorHttpGet">
+    <http:binding verb="GET" />
+    <operation name="Suma">
+      <http:operation location="/Suma" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="Multiplicacion">
+      <http:operation location="/Multiplicacion" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="ServidorHttpPost" type="s0:ServidorHttpPost">
+    <http:binding verb="POST" />
+    <operation name="Suma">
+      <http:operation location="/Suma" />
+      <input>
+        <mime:content part="" type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="Multiplicacion">
+      <http:operation location="/Multiplicacion" />
+      <input>
+        <mime:content part="" type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Servidor">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servidor de prueba</wsdl:documentation>
+    <port name="ServidorSoap" binding="s0:ServidorSoap">
+      <soap:address location="http://localhost:8080/Servidor.asmx" />
+    </port>
+    <port name="ServidorSoap12" binding="s0:ServidorSoap12">
+      <soap12:address location="http://localhost:8080/Servidor.asmx" />
+    </port>
+    <port name="ServidorHttpGet" binding="s0:ServidorHttpGet">
+      <http:address location="http://localhost:8080/Servidor.asmx" />
+    </port>
+    <port name="ServidorHttpPost" binding="s0:ServidorHttpPost">
+      <http:address location="http://localhost:8080/Servidor.asmx" />
+    </port>
+  </service>
+</definitions>
