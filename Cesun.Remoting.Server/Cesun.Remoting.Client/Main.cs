@@ -12,6 +12,7 @@ namespace Cesun.Remoting.Client
 			RemotingConfiguration.Configure("RemotingServer.config");
 			
 			RemotingServer server = new RemotingServer();
+			server.TaskComplete += TaskCompleteFromServer;
 			
 			
 			bool shouldExit = false;
@@ -19,13 +20,21 @@ namespace Cesun.Remoting.Client
 			do {
 				Person p = server.FindPerson(0);
 				Console.WriteLine(String.Format("Resultado de la llamada al server: {0}", 
-			                                server.GetActiveDomain() ));
+			                                "" ));
+				server.LongRunning();
 				
 				Console.WriteLine("Exit: (N)");
 				string ret = Console.ReadLine();
 				shouldExit = (ret == "S");
 			} while (!shouldExit);
 		}
+		
+		
+		public static TaskCompleteFromServer(object sender, 
+			                                TaskCompleteEventArgs e) {
+				Console.WriteLine(String.Format("Mensaje del servidor: {0}", 
+				       e.Result));                         
+			}
 	}
 }
 
