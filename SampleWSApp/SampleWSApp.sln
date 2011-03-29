@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWSApp.Server", "SampleWSApp.Server\SampleWSApp.Server.csproj", "{3E884CE1-05AC-407D-BB61-06E5E49EAC55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWSApp.Client", "SampleWSApp.Client\SampleWSApp.Client.csproj", "{D1D08EDD-9610-4A32-B40A-A93B7FDCB2B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E884CE1-05AC-407D-BB61-06E5E49EAC55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E884CE1-05AC-407D-BB61-06E5E49EAC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E884CE1-05AC-407D-BB61-06E5E49EAC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E884CE1-05AC-407D-BB61-06E5E49EAC55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1D08EDD-9610-4A32-B40A-A93B7FDCB2B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1D08EDD-9610-4A32-B40A-A93B7FDCB2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1D08EDD-9610-4A32-B40A-A93B7FDCB2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1D08EDD-9610-4A32-B40A-A93B7FDCB2B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = SampleWSApp.Client\SampleWSApp.Client.csproj
+	EndGlobalSection
+EndGlobal

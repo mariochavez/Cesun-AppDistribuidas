@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s0="http://www.cesun.edu" name="Shipment" targetNamespace="http://www.cesun.edu" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.cesun.edu" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Send">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="to" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="from" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="SendResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SecurityHeader" nillable="true" type="s0:SecurityHeader" />
+      <xs:complexType name="SecurityHeader">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Token" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="boolean" type="xs:boolean" />
+    </xs:schema>
+  </types>
+  <message name="SendSoapIn">
+    <part name="parameters" element="s0:Send" />
+  </message>
+  <message name="SendSoapOut">
+    <part name="parameters" element="s0:SendResponse" />
+  </message>
+  <message name="SendSecurityHeader">
+    <part name="SecurityHeader" element="s0:SecurityHeader" />
+  </message>
+  <message name="SendHttpGetIn">
+    <part name="to" type="s:string" />
+    <part name="from" type="s:string" />
+  </message>
+  <message name="SendHttpGetOut">
+    <part name="Body" element="s0:boolean" />
+  </message>
+  <message name="SendHttpPostIn">
+    <part name="to" type="s:string" />
+    <part name="from" type="s:string" />
+  </message>
+  <message name="SendHttpPostOut">
+    <part name="Body" element="s0:boolean" />
+  </message>
+  <portType name="ShipmentSoap">
+    <operation name="Send">
+      <input message="s0:SendSoapIn" />
+      <output message="s0:SendSoapOut" />
+    </operation>
+  </portType>
+  <portType name="ShipmentSoap12">
+    <operation name="Send">
+      <input message="s0:SendSoapIn" />
+      <output message="s0:SendSoapOut" />
+    </operation>
+  </portType>
+  <portType name="ShipmentHttpGet">
+    <operation name="Send">
+      <input message="s0:SendHttpGetIn" />
+      <output message="s0:SendHttpGetOut" />
+    </operation>
+  </portType>
+  <portType name="ShipmentHttpPost">
+    <operation name="Send">
+      <input message="s0:SendHttpPostIn" />
+      <output message="s0:SendHttpPostOut" />
+    </operation>
+  </portType>
+  <binding name="ShipmentSoap" type="s0:ShipmentSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Send">
+      <soap:operation soapAction="http://www.cesun.edu/Send" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:SendSecurityHeader" part="SecurityHeader" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="ShipmentSoap12" type="s0:ShipmentSoap12">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Send">
+      <soap12:operation soapAction="http://www.cesun.edu/Send" style="document" />
+      <input>
+        <soap12:body use="literal" />
+        <soap12:header message="s0:SendSecurityHeader" part="SecurityHeader" use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="ShipmentHttpGet" type="s0:ShipmentHttpGet">
+    <http:binding verb="GET" />
+    <operation name="Send">
+      <http:operation location="/Send" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="ShipmentHttpPost" type="s0:ShipmentHttpPost">
+    <http:binding verb="POST" />
+    <operation name="Send">
+      <http:operation location="/Send" />
+      <input>
+        <mime:content part="" type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Shipment">
+    <port name="ShipmentSoap" binding="s0:ShipmentSoap">
+      <soap:address location="http://localhost:8080/Shipment.asmx" />
+    </port>
+    <port name="ShipmentSoap12" binding="s0:ShipmentSoap12">
+      <soap12:address location="http://localhost:8080/Shipment.asmx" />
+    </port>
+    <port name="ShipmentHttpGet" binding="s0:ShipmentHttpGet">
+      <http:address location="http://localhost:8080/Shipment.asmx" />
+    </port>
+    <port name="ShipmentHttpPost" binding="s0:ShipmentHttpPost">
+      <http:address location="http://localhost:8080/Shipment.asmx" />
+    </port>
+  </service>
+</definitions>

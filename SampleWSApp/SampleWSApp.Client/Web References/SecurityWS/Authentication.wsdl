@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s0="http://www.cesun.edu" name="Authentication" targetNamespace="http://www.cesun.edu" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.cesun.edu" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Authenticate">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="username" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="passwordHash" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AuthenticateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="AuthenticateResult" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="string" nillable="true" type="xs:string" />
+    </xs:schema>
+  </types>
+  <message name="AuthenticateSoapIn">
+    <part name="parameters" element="s0:Authenticate" />
+  </message>
+  <message name="AuthenticateSoapOut">
+    <part name="parameters" element="s0:AuthenticateResponse" />
+  </message>
+  <message name="AuthenticateHttpGetIn">
+    <part name="username" type="s:string" />
+    <part name="passwordHash" type="s:string" />
+  </message>
+  <message name="AuthenticateHttpGetOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <message name="AuthenticateHttpPostIn">
+    <part name="username" type="s:string" />
+    <part name="passwordHash" type="s:string" />
+  </message>
+  <message name="AuthenticateHttpPostOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <portType name="AuthenticationSoap">
+    <operation name="Authenticate">
+      <input message="s0:AuthenticateSoapIn" />
+      <output message="s0:AuthenticateSoapOut" />
+    </operation>
+  </portType>
+  <portType name="AuthenticationSoap12">
+    <operation name="Authenticate">
+      <input message="s0:AuthenticateSoapIn" />
+      <output message="s0:AuthenticateSoapOut" />
+    </operation>
+  </portType>
+  <portType name="AuthenticationHttpGet">
+    <operation name="Authenticate">
+      <input message="s0:AuthenticateHttpGetIn" />
+      <output message="s0:AuthenticateHttpGetOut" />
+    </operation>
+  </portType>
+  <portType name="AuthenticationHttpPost">
+    <operation name="Authenticate">
+      <input message="s0:AuthenticateHttpPostIn" />
+      <output message="s0:AuthenticateHttpPostOut" />
+    </operation>
+  </portType>
+  <binding name="AuthenticationSoap" type="s0:AuthenticationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Authenticate">
+      <soap:operation soapAction="http://www.cesun.edu/Authenticate" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="AuthenticationSoap12" type="s0:AuthenticationSoap12">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Authenticate">
+      <soap12:operation soapAction="http://www.cesun.edu/Authenticate" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="AuthenticationHttpGet" type="s0:AuthenticationHttpGet">
+    <http:binding verb="GET" />
+    <operation name="Authenticate">
+      <http:operation location="/Authenticate" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="AuthenticationHttpPost" type="s0:AuthenticationHttpPost">
+    <http:binding verb="POST" />
+    <operation name="Authenticate">
+      <http:operation location="/Authenticate" />
+      <input>
+        <mime:content part="" type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Authentication">
+    <port name="AuthenticationSoap" binding="s0:AuthenticationSoap">
+      <soap:address location="http://localhost:8080/Authentication.asmx" />
+    </port>
+    <port name="AuthenticationSoap12" binding="s0:AuthenticationSoap12">
+      <soap12:address location="http://localhost:8080/Authentication.asmx" />
+    </port>
+    <port name="AuthenticationHttpGet" binding="s0:AuthenticationHttpGet">
+      <http:address location="http://localhost:8080/Authentication.asmx" />
+    </port>
+    <port name="AuthenticationHttpPost" binding="s0:AuthenticationHttpPost">
+      <http:address location="http://localhost:8080/Authentication.asmx" />
+    </port>
+  </service>
+</definitions>
